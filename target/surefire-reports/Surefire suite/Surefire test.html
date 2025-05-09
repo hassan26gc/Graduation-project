@@ -1,0 +1,215 @@
+<html>
+<head>
+<title>TestNG:  Surefire test</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>Surefire test</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>27/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Fri May 09 21:04:24 EEST 2025</td>
+</tr>
+<tr><td>Total time:</td><td>143 seconds (143411 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td><b>Attribute(s)</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='Login.TC04_validateErrorMessageOnFailedLogin()'><b>TC04_validateErrorMessageOnFailedLogin</b><br>Test class: Login</td>
+<td></td>
+<td>1</td>
+<td>Login@475e586c</td></tr>
+<tr>
+<td title='TransferFundsS2.openAccountTest()'><b>openAccountTest</b><br>Test class: TransferFundsS2</td>
+<td></td>
+<td>12</td>
+<td>TransferFundsS2@13acb0d1</td></tr>
+<tr>
+<td title='Register.testRegisterWithTakenUsername()'><b>testRegisterWithTakenUsername</b><br>Test class: Register</td>
+<td></td>
+<td>8</td>
+<td>Register@5ad851c9</td></tr>
+<tr>
+<td title='TransferFundsS3.registerNewUser()'><b>registerNewUser</b><br>Test class: TransferFundsS3</td>
+<td></td>
+<td>3</td>
+<td>TransferFundsS3@3e3047e6</td></tr>
+<tr>
+<td title='zBillPayment.TC20_submitBillPayWithEmptyFields()'><b>TC20_submitBillPayWithEmptyFields</b><br>Test class: zBillPayment</td>
+<td></td>
+<td>0</td>
+<td>zBillPayment@32ee6fee</td></tr>
+<tr>
+<td title='Register.testNavigateToRegistrationPage()'><b>testNavigateToRegistrationPage</b><br>Test class: Register</td>
+<td></td>
+<td>4</td>
+<td>Register@5ad851c9</td></tr>
+<tr>
+<td title='Register.testRegisterWithMissingFields()'><b>testRegisterWithMissingFields</b><br>Test class: Register</td>
+<td></td>
+<td>3</td>
+<td>Register@5ad851c9</td></tr>
+<tr>
+<td title='TransferFundsS1.registerTest()'><b>registerTest</b><br>Test class: TransferFundsS1</td>
+<td></td>
+<td>3</td>
+<td>TransferFundsS1@b62fe6d</td></tr>
+<tr>
+<td title='Register.testRegisterWithValidDetails()'><b>testRegisterWithValidDetails</b><br>Test class: Register</td>
+<td></td>
+<td>5</td>
+<td>Register@5ad851c9</td></tr>
+<tr>
+<td title='UpdateProfileWithEmpty.updateProfileWithEmptyFields_ShouldShowValidation()'><b>updateProfileWithEmptyFields_ShouldShowValidation</b><br>Test class: UpdateProfileWithEmpty</td>
+<td></td>
+<td>9</td>
+<td>UpdateProfileWithEmpty@5562c41e</td></tr>
+<tr>
+<td title='UpdateProfile.registerAndUpdateProfile()'><b>registerAndUpdateProfile</b><br>Test class: UpdateProfile</td>
+<td></td>
+<td>14</td>
+<td>UpdateProfile@4d5b6aac</td></tr>
+<tr>
+<td title='Login.TC01_verifyValidLogin()'><b>TC01_verifyValidLogin</b><br>Test class: Login</td>
+<td></td>
+<td>2</td>
+<td>Login@475e586c</td></tr>
+<tr>
+<td title='zBillPayment.TC19_validBillPaymentSubmission()'><b>TC19_validBillPaymentSubmission</b><br>Test class: zBillPayment</td>
+<td></td>
+<td>2</td>
+<td>zBillPayment@32ee6fee</td></tr>
+<tr>
+<td title='TransferFundsS1.verifyTransferTest()'><b>verifyTransferTest</b><br>Test class: TransferFundsS1</td>
+<td></td>
+<td>0</td>
+<td>TransferFundsS1@b62fe6d</td></tr>
+<tr>
+<td title='Login.TC02_verifyLoginFailsWithIncorrectCredentials()'><b>TC02_verifyLoginFailsWithIncorrectCredentials</b><br>Test class: Login</td>
+<td></td>
+<td>1</td>
+<td>Login@475e586c</td></tr>
+<tr>
+<td title='TransferFundsS3.logoutAndAccessProtectedPage()'><b>logoutAndAccessProtectedPage</b><br>Test class: TransferFundsS3</td>
+<td></td>
+<td>1</td>
+<td>TransferFundsS3@3e3047e6</td></tr>
+<tr>
+<td title='TransferFundsS2.transferFundsTest()'><b>transferFundsTest</b><br>Test class: TransferFundsS2</td>
+<td></td>
+<td>1</td>
+<td>TransferFundsS2@13acb0d1</td></tr>
+<tr>
+<td title='zBillPayment.TC18_navigateToBillPay()'><b>TC18_navigateToBillPay</b><br>Test class: zBillPayment</td>
+<td></td>
+<td>0</td>
+<td>zBillPayment@32ee6fee</td></tr>
+<tr>
+<td title='TransferFundsS2.searchTransferByAmountTest()'><b>searchTransferByAmountTest</b><br>Test class: TransferFundsS2</td>
+<td></td>
+<td>2</td>
+<td>TransferFundsS2@13acb0d1</td></tr>
+<tr>
+<td title='TransferFundsS1.openAccountTest()'><b>openAccountTest</b><br>Test class: TransferFundsS1</td>
+<td></td>
+<td>12</td>
+<td>TransferFundsS1@b62fe6d</td></tr>
+<tr>
+<td title='TransferFundsS2.verifyTransferTest()'><b>verifyTransferTest</b><br>Test class: TransferFundsS2</td>
+<td></td>
+<td>0</td>
+<td>TransferFundsS2@13acb0d1</td></tr>
+<tr>
+<td title='TransferFundsS1.logoutTest()'><b>logoutTest</b><br>Test class: TransferFundsS1</td>
+<td></td>
+<td>0</td>
+<td>TransferFundsS1@b62fe6d</td></tr>
+<tr>
+<td title='TransferFundsS2.logoutTest()'><b>logoutTest</b><br>Test class: TransferFundsS2</td>
+<td></td>
+<td>0</td>
+<td>TransferFundsS2@13acb0d1</td></tr>
+<tr>
+<td title='TransferFundsS1.transferFundsTest()'><b>transferFundsTest</b><br>Test class: TransferFundsS1</td>
+<td></td>
+<td>2</td>
+<td>TransferFundsS1@b62fe6d</td></tr>
+<tr>
+<td title='Login.TC03_verifyLoginFailsWithBlankCredentials()'><b>TC03_verifyLoginFailsWithBlankCredentials</b><br>Test class: Login</td>
+<td></td>
+<td>0</td>
+<td>Login@475e586c</td></tr>
+<tr>
+<td title='TransferFundsS3.transferWithoutDataWhileLoggedIn()'><b>transferWithoutDataWhileLoggedIn</b><br>Test class: TransferFundsS3</td>
+<td></td>
+<td>1</td>
+<td>TransferFundsS3@3e3047e6</td></tr>
+<tr>
+<td title='TransferFundsS2.registerTest()'><b>registerTest</b><br>Test class: TransferFundsS2</td>
+<td></td>
+<td>2</td>
+<td>TransferFundsS2@13acb0d1</td></tr>
+</table><p>
+</body>
+</html>
