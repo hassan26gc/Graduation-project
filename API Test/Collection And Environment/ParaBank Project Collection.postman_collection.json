@@ -1,0 +1,907 @@
+{
+	"info": {
+		"_postman_id": "755492d5-452c-4e87-a774-67b62075380f",
+		"name": "ParaBank Project Collection",
+		"description": "Collection for login and checking account overview",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "42959678",
+		"_collection_link": "https://www.postman.com/hassanmohamed-9180022/workspace/parabank-workspace-group-1/collection/42959678-755492d5-452c-4e87-a774-67b62075380f?action=share&source=collection_link&creator=42959678"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"item": [
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Account Login successful\", function () {\r",
+									"    pm.response.to.have.status(302); // Ensure status is OK\r",
+									"    pm.expect(pm.response.text()).to.include(\"Accounts Overview\");\r",
+									"});\r",
+									"pm.environment.set(\"loggedInAt\", new Date().getTime());\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							},
+							{
+								"key": "cookie",
+								"value": "{{cookie1}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "ToqaHussein24989",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "1234",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/login.htm",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"login.htm"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Accounts Overview (After Login)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Account registration successful\", function () {\r",
+									"    pm.response.to.have.status(200); // Ensure status is OK\r",
+									"    pm.expect(pm.response.text()).to.include(\"Accounts Overview\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "cookie",
+								"value": "{{cookie1}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}\\overview.htm",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"overview.htm"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Bill Payment",
+			"item": [
+				{
+					"name": "Bill Payment Req",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"let responseData = pm.response.json();\r",
+									"\r",
+									"let expectedData = {\r",
+									"    payeeName: \"ToqaHussein246\",\r",
+									"    amount: 100,\r",
+									"    accountId: 13899\r",
+									"};\r",
+									"\r",
+									"pm.test(\"Response data matches expected values\", function () {\r",
+									"    pm.expect(responseData).to.eql(expectedData);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "cookie",
+								"value": "{{cookie1}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"address\":{\"street\":\"Arab contractors Nasr City Cairo\",\"city\":\"Nasr City, Cairo\",\"state\":\"19\",\"zipCode\":\"555\"},\"name\":\"ToqaHussein246\",\"phoneNumber\":\"01152089100\",\"accountNumber\":\"13788\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/services_proxy/bank/billpay?accountId=13899&amount=100",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"services_proxy",
+								"bank",
+								"billpay"
+							],
+							"query": [
+								{
+									"key": "accountId",
+									"value": "13899"
+								},
+								{
+									"key": "amount",
+									"value": "100"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Register",
+			"item": [
+				{
+					"name": "Register New User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Account registration successful\", function () {\r",
+									"    pm.response.to.have.status(200); // Ensure status is OK\r",
+									"    pm.expect(pm.response.text()).to.include(\"Your account was created successfully.\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"Welcome ToqaHussein249898\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "cookie",
+								"value": "{{cookie1}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "customer.firstName",
+									"value": "Toqa",
+									"type": "text"
+								},
+								{
+									"key": "customer.lastName",
+									"value": "hussein",
+									"type": "text"
+								},
+								{
+									"key": "customer.address.street",
+									"value": "Arab contractors Nasr City Cairo",
+									"type": "text"
+								},
+								{
+									"key": "customer.address.city",
+									"value": "Nasr City, Cairo",
+									"type": "text"
+								},
+								{
+									"key": "customer.address.state",
+									"value": "19",
+									"type": "text"
+								},
+								{
+									"key": "customer.address.zipCode",
+									"value": "555",
+									"type": "text"
+								},
+								{
+									"key": "customer.phoneNumber",
+									"value": "01152089100",
+									"type": "text"
+								},
+								{
+									"key": "customer.ssn",
+									"value": "2222",
+									"type": "text"
+								},
+								{
+									"key": "customer.username",
+									"value": "ToqaHussein249898",
+									"type": "text"
+								},
+								{
+									"key": "customer.password",
+									"value": "1234",
+									"type": "text"
+								},
+								{
+									"key": "repeatedPassword",
+									"value": "1234",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://parabank.parasoft.com/parabank/register.htm",
+							"protocol": "https",
+							"host": [
+								"parabank",
+								"parasoft",
+								"com"
+							],
+							"path": [
+								"parabank",
+								"register.htm"
+							]
+						},
+						"description": "This request is used to register a new user in the Parabank system by submitting personal and contact information through a form. The server processes the data and creates a new customer account if all required fields are valid and provided correctly.\n\nTo simulate the user registration process via API by sending form data such as first name, last name, address, phone number, username, and password."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Transfer Funds",
+			"item": [
+				{
+					"name": "Transfer Funds",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Transfer Complete\", function () {\r",
+									"    pm.response.to.have.status(200); // Ensure status is OK\r",
+									"    pm.response.to.have.body(\"Successfully transferred $100 from account #13788 to account #14565\");\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "cookie",
+								"value": "{{cookie1}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "fromAccountId",
+									"value": "13788",
+									"type": "text"
+								},
+								{
+									"key": "toAccountId",
+									"value": "14565",
+									"type": "text"
+								},
+								{
+									"key": "amount",
+									"value": "100",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/services_proxy/bank/transfer?fromAccountId=13788&toAccountId=14565&amount=100",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"",
+								"services_proxy",
+								"bank",
+								"transfer"
+							],
+							"query": [
+								{
+									"key": "fromAccountId",
+									"value": "13788"
+								},
+								{
+									"key": "toAccountId",
+									"value": "14565"
+								},
+								{
+									"key": "amount",
+									"value": "100"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Accounts Overview",
+			"item": [
+				{
+					"name": "Accounts Overview",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"let jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Response has 4 accounts\", function () {\r",
+									"    pm.expect(jsonData.length).to.eql(4);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Each account has correct keys\", function () {\r",
+									"    jsonData.forEach(account => {\r",
+									"        pm.expect(account).to.have.property(\"id\");\r",
+									"        pm.expect(account).to.have.property(\"customerId\", 12656);\r",
+									"        pm.expect(account).to.have.property(\"type\", \"CHECKING\");\r",
+									"        pm.expect(account).to.have.property(\"balance\");\r",
+									"    });\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "cookie",
+								"value": "{{cookie1}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n  {\r\n    \"id\": 13788,\r\n    \"customerId\": 12656,\r\n    \"type\": \"CHECKING\",\r\n    \"balance\": 45.5\r\n  },\r\n  {\r\n    \"id\": 14565,\r\n    \"customerId\": 12656,\r\n    \"type\": \"CHECKING\",\r\n    \"balance\": 390\r\n  },\r\n  {\r\n    \"id\": 14676,\r\n    \"customerId\": 12656,\r\n    \"type\": \"CHECKING\",\r\n    \"balance\": -10\r\n  }\r\n]\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/services_proxy/bank/customers/12656/accounts",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"services_proxy",
+								"bank",
+								"customers",
+								"12656",
+								"accounts"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Open new account",
+			"item": [
+				{
+					"name": "Open New Account",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Account data is correct\", function () {\r",
+									"    var jsonData = pm.response.json(); \r",
+									"    pm.expect(jsonData.customerId).to.eql(12656);  \r",
+									"    pm.expect(jsonData.type).to.eql(\"CHECKING\");   \r",
+									"    pm.expect(jsonData.balance).to.eql(0);  \r",
+									"});\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "cookie",
+								"value": "{{cookie1}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "fromAccountId",
+									"value": "12656",
+									"type": "text"
+								},
+								{
+									"key": "newAccountType",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "customerId",
+									"value": "13788",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/services_proxy/bank/createAccount?customerId=12656&newAccountType=0&fromAccountId=13788",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"services_proxy",
+								"bank",
+								"createAccount"
+							],
+							"query": [
+								{
+									"key": "customerId",
+									"value": "12656"
+								},
+								{
+									"key": "newAccountType",
+									"value": "0"
+								},
+								{
+									"key": "fromAccountId",
+									"value": "13788"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Find Transactions",
+			"item": [
+				{
+					"name": "Find Transactions With Amount",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Transaction data is correct\", function () {\r",
+									"    var jsonData = pm.response.json()[0];\r",
+									"    pm.expect(jsonData.id).to.eql(46222);\r",
+									"    pm.expect(jsonData.accountId).to.eql(43314);\r",
+									"    pm.expect(jsonData.type).to.eql(\"Debit\");\r",
+									"    pm.expect(jsonData.amount).to.eql(100);\r",
+									"    pm.expect(jsonData.date).to.eql(1746576000000);\r",
+									"    var date = new Date(jsonData.date);\r",
+									"    console.log(\"Transaction date: \" + date.toISOString());\r",
+									"});\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "cookie",
+								"value": "{{cookie1}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "timeout",
+									"value": "30000",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/services_proxy/bank/accounts/43314/transactions/amount/100?timeout=30000",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"services_proxy",
+								"bank",
+								"accounts",
+								"43314",
+								"transactions",
+								"amount",
+								"100"
+							],
+							"query": [
+								{
+									"key": "timeout",
+									"value": "30000"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find Transactions With Date",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Transaction data is correct\", function () {\r",
+									"    var jsonData = pm.response.json()[0];\r",
+									"    pm.expect(jsonData.id).to.eql(46222);\r",
+									"    pm.expect(jsonData.accountId).to.eql(43314);\r",
+									"    pm.expect(jsonData.type).to.eql(\"Debit\");\r",
+									"    pm.expect(jsonData.amount).to.eql(100);\r",
+									"    pm.expect(jsonData.date).to.eql(1746576000000);\r",
+									"    var date = new Date(jsonData.date);\r",
+									"    console.log(\"Transaction date: \" + date.toISOString());\r",
+									"});\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "cookie",
+								"value": "{{cookie1}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "timeout",
+									"value": "30000",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/services_proxy/bank/accounts/43314/transactions/onDate/05-07-2025?timeout=30000",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"services_proxy",
+								"bank",
+								"accounts",
+								"43314",
+								"transactions",
+								"onDate",
+								"05-07-2025"
+							],
+							"query": [
+								{
+									"key": "timeout",
+									"value": "30000"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find Transactions Between Two Dates",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Transaction data is correct\", function () {\r",
+									"    var jsonData = pm.response.json()[0];\r",
+									"    pm.expect(jsonData.id).to.eql(46222);\r",
+									"    pm.expect(jsonData.accountId).to.eql(43314);\r",
+									"    pm.expect(jsonData.type).to.eql(\"Debit\");\r",
+									"    pm.expect(jsonData.amount).to.eql(100);\r",
+									"    pm.expect(jsonData.date).to.eql(1746576000000);\r",
+									"    var date = new Date(jsonData.date);\r",
+									"    console.log(\"Transaction date: \" + date.toISOString());\r",
+									"});\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "cookie",
+								"value": "{{cookie1}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "timeout",
+									"value": "30000",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/services_proxy/bank/accounts/43314/transactions/fromDate/04-23-2025/toDate/05-07-2025?timeout=30000",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"services_proxy",
+								"bank",
+								"accounts",
+								"43314",
+								"transactions",
+								"fromDate",
+								"04-23-2025",
+								"toDate",
+								"05-07-2025"
+							],
+							"query": [
+								{
+									"key": "timeout",
+									"value": "30000"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find Transactions With ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "cookie",
+								"value": "{{cookie1}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "timeout",
+									"value": "30000",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/services_proxy/bank/accounts/14676/transactions/?timeout=30000",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"services_proxy",
+								"bank",
+								"accounts",
+								"14676",
+								"transactions",
+								""
+							],
+							"query": [
+								{
+									"key": "timeout",
+									"value": "30000"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

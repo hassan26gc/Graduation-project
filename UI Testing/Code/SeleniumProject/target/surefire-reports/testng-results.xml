@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="4" passed="4" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2025-05-09T20:39:21 EEST" name="Surefire suite" finished-at="2025-05-09T20:39:46 EEST" duration-ms="24955">
+    <groups>
+    </groups>
+    <test started-at="2025-05-09T20:39:21 EEST" name="Surefire test" finished-at="2025-05-09T20:39:46 EEST" duration-ms="24955">
+      <class name="Login">
+        <test-method is-config="true" signature="setup()[pri:0, instance:Login@1d548a08]" started-at="2025-05-09T20:39:21 EEST" name="setup" finished-at="2025-05-09T20:39:35 EEST" duration-ms="13865" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:Login@1d548a08]" started-at="2025-05-09T20:39:35 EEST" name="beforeMethod" finished-at="2025-05-09T20:39:36 EEST" duration-ms="542" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void Login.TC01_verifyValidLogin()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method signature="TC01_verifyValidLogin()[pri:1, instance:Login@1d548a08]" started-at="2025-05-09T20:39:36 EEST" name="TC01_verifyValidLogin" finished-at="2025-05-09T20:39:39 EEST" duration-ms="3761" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC01_verifyValidLogin -->
+        <test-method is-config="true" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:Login@1d548a08]" started-at="2025-05-09T20:39:39 EEST" name="afterMethod" finished-at="2025-05-09T20:39:40 EEST" duration-ms="957" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=TC01_verifyValidLogin status=SUCCESS method=Login.TC01_verifyValidLogin()[pri:1, instance:Login@1d548a08] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:Login@1d548a08]" started-at="2025-05-09T20:39:40 EEST" name="beforeMethod" finished-at="2025-05-09T20:39:41 EEST" duration-ms="439" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void Login.TC02_verifyLoginFailsWithIncorrectCredentials()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method signature="TC02_verifyLoginFailsWithIncorrectCredentials()[pri:2, instance:Login@1d548a08]" started-at="2025-05-09T20:39:41 EEST" name="TC02_verifyLoginFailsWithIncorrectCredentials" finished-at="2025-05-09T20:39:42 EEST" duration-ms="1168" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC02_verifyLoginFailsWithIncorrectCredentials -->
+        <test-method is-config="true" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:Login@1d548a08]" started-at="2025-05-09T20:39:42 EEST" name="afterMethod" finished-at="2025-05-09T20:39:42 EEST" duration-ms="459" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=TC02_verifyLoginFailsWithIncorrectCredentials status=SUCCESS method=Login.TC02_verifyLoginFailsWithIncorrectCredentials()[pri:2, instance:Login@1d548a08] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:Login@1d548a08]" started-at="2025-05-09T20:39:42 EEST" name="beforeMethod" finished-at="2025-05-09T20:39:43 EEST" duration-ms="433" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void Login.TC03_verifyLoginFailsWithBlankCredentials()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method signature="TC03_verifyLoginFailsWithBlankCredentials()[pri:3, instance:Login@1d548a08]" started-at="2025-05-09T20:39:43 EEST" name="TC03_verifyLoginFailsWithBlankCredentials" finished-at="2025-05-09T20:39:43 EEST" duration-ms="682" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC03_verifyLoginFailsWithBlankCredentials -->
+        <test-method is-config="true" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:Login@1d548a08]" started-at="2025-05-09T20:39:43 EEST" name="afterMethod" finished-at="2025-05-09T20:39:44 EEST" duration-ms="449" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=TC03_verifyLoginFailsWithBlankCredentials status=SUCCESS method=Login.TC03_verifyLoginFailsWithBlankCredentials()[pri:3, instance:Login@1d548a08] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:Login@1d548a08]" started-at="2025-05-09T20:39:44 EEST" name="beforeMethod" finished-at="2025-05-09T20:39:44 EEST" duration-ms="428" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void Login.TC04_validateErrorMessageOnFailedLogin()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method signature="TC04_validateErrorMessageOnFailedLogin()[pri:4, instance:Login@1d548a08]" started-at="2025-05-09T20:39:44 EEST" name="TC04_validateErrorMessageOnFailedLogin" finished-at="2025-05-09T20:39:45 EEST" duration-ms="944" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC04_validateErrorMessageOnFailedLogin -->
+        <test-method is-config="true" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:Login@1d548a08]" started-at="2025-05-09T20:39:45 EEST" name="afterMethod" finished-at="2025-05-09T20:39:46 EEST" duration-ms="480" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=TC04_validateErrorMessageOnFailedLogin status=SUCCESS method=Login.TC04_validateErrorMessageOnFailedLogin()[pri:4, instance:Login@1d548a08] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:Login@1d548a08]" started-at="2025-05-09T20:39:46 EEST" name="tearDown" finished-at="2025-05-09T20:39:46 EEST" duration-ms="282" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- Login -->
+    </test> <!-- Surefire test -->
+  </suite> <!-- Surefire suite -->
+</testng-results>
